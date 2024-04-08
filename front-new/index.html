@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Fetch.js"></script>
+  </head>
+  <body>
+    <div class="w-screen h-screen flex flex-row justify-center items-center">
+      <div>&nbsp;</div>
+
+      <div
+        class="bg-gray-100 border-4 p-3 w-[40rem] h-[40rem] flex flex-col justify-around"
+      >
+        <h1 class="text-center text-4xl py-3 bg-white rounded-full border-4">
+          Gerenciador de Produtos
+        </h1>
+
+        <div class="px-3 mt-5 flex flex-col">
+          <div class="flex flex-row container">
+            <label for="id_product" class="pl-2 mr-2"
+              >Identificador do produto</label
+            >
+            <div id = "circles"class="pl-2">
+
+              <span class="rounded-full bg-yellow-400 px-2">&ensp;</span>
+              <span class="rounded-full bg-red-400 px-2">&ensp;</span>
+              <span class="rounded-full bg-blue-400 px-2">&ensp;</span>
+          </div>
+          </div>
+          <input
+            id="id_product"
+            name="id_product"
+            type="text"
+            placeholder="1237128937819231"
+            class="rounded-md border-4 border-gray-200 p-3 hover:scale-105 transition-all"
+          />
+        </div>
+
+        <div class="px-3 flex flex-col">
+          <div class="flex flex-row container">
+            <label for="nome_produto" class="pl-2">Nome do Produto</label>
+            <div id = "circles" class="pl-2">
+              <span class="rounded-full bg-green-400 px-2">&ensp;</span>
+              <span class="rounded-full bg-yellow-400 px-2">&ensp;</span>
+             
+          </div>
+          </div>
+          <input
+            id="name_product"
+            name="name"
+            type="text"
+            placeholder="Alface"
+            class="rounded-md border-4 border-gray-200 p-3 hover:scale-105 transition-all"
+          />
+        </div>
+
+        <div class="px-3 flex flex-col">
+          <div class="flex flex-row container">
+            <label for="description" class="pl-2">Descrição</label>
+            <div id = "circles" class="pl-2">
+              <span class="rounded-full bg-green-400 px-2">&ensp;</span>
+              <span class="rounded-full bg-yellow-400 px-2">&ensp;</span>
+          
+          </div>
+          </div>
+
+          <input
+            id="description_product"
+            name="name_product"
+            type="text"
+            placeholder="Excelete salada suculenta"
+            class="rounded-md border-4 border-gray-200 p-3 hover:scale-105 transition-all"
+          />
+        </div>
+
+        <div class="px-3 flex flex-col">
+          <div class="flex flex-row container">
+            <label for="name_product" class="pl-2">Preço</label>
+            <div id = "circles" class="pl-2">
+              <span class="rounded-full bg-green-400 px-2">&ensp;</span>
+              <span class="rounded-full bg-yellow-400 px-2">&ensp;</span>
+          </div>
+          </div>
+          <input
+            id="price_product"
+            name="name_product"
+            type="number"
+            placeholder="19.90"
+            class="rounded-md border-4 border-gray-200 p-3 hover:scale-105 transition-all"
+          />
+        </div>
+
+        <div class="flex flex-row justify-center">
+          <button id="insert"
+            class="rounded-md mx-2 p-3 mt-4 bg-green-100 border-2 border-black hover:bg-green-400 hover:border-green-400 hover:scale-105 transition-all"
+            
+          >
+            Adicionar
+          </button>
+          <button
+          id="search"
+            class="rounded-md mx-2 p-3 mt-4 bg-blue-100 border-2 border-black hover:bg-blue-400 hover:border-blue-400 hover:scale-105 transition-all"
+         >
+            Procurar
+          </button>
+          <button
+          id="update"
+            class="rounded-md mx-2 p-3 mt-4 bg-yellow-100 border-2 border-black hover:bg-yellow-400 hover:border-yellow-400 hover:scale-105 transition-all"
+          >
+            Atualizar
+          </button>
+          <button
+            id="delete"
+            class="rounded-md mx-2 p-3 mt-4 bg-red-100 border-2 border-black hover:bg-red-400 hover:border-red-400 hover:scale-105 transition-all"
+          >
+            Deletar
+          </button>
+        </div>
+      </div>
+
+      <div>&nbsp;</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+version: '3'
+
+vars:
+  PROJECT_DIR: FastCrud
+  VENV_DIR: .venv 
+
+tasks:
+  default:
+    cmds:
+      - task: test
+  test:
+    cmds:
+      - {{.VENV_DIR}}/Scripts/python.exe "{{.PROJECT_DIR}}\{{.TESTING_FILE}}" {{.CLI_ARGS}}
+    vars:
+      TESTING_FILE: run.py
+  venv:
+    cmds:
+      - python3 -m venv {{.VENV_DIR}
+      - {{.VENV_DIR}}/Scripts/pip3.exe install -r "{{.PROJECT_DIR}}\requirements.txt"
+  clean:
+    cmds:
+      - cmd /c del {{.VENV_DIR}
+  api:
+    dir: "{{.PROJECT_DIR}}"
+    cmds:
+      - uvicorn main:app --reload
+  front:
+    dir: "{{.PROJECT_DIR}}"
+    cmds:
+      - python3 -m http.server 
