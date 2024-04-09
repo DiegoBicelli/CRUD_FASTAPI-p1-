@@ -9,7 +9,7 @@ item_Repository = itemRepository(db_connection)
 
 documento = Item(
     id="661071ec9e75dded8d9c1e0c",
-    name="Gabriel",
+    name="Operação de Teste",
     price=10
 )
 

@@ -46,17 +46,10 @@ class itemRepository:
             return {}
 
     def edit_registry(self, id: str, data: ItemSend) -> Dict:
-        response: UpdateResult = self.get_current_collection().update_one(
+        UpdateResult = self.get_current_collection().update_one(
             {"_id": ObjectId(id)},
             {"$set": data.model_dump()}
         )
-        return {
-            "acknowledged": response.acknowledged,
-            "matched_count": response.matched_count,
-            "modified_count":response.modified_count,
-            "raw_result": response.raw_result,
-            "upserted_id": response.upserted_id
-        }
 
     def edit_many_registries(self,filtro: dict, propriedades: dict) -> None:
         return self.get_current_collection.update_many(
@@ -74,9 +67,5 @@ class itemRepository:
         return self.get_current_collection().delete_many(data)
 
     def delete_registry(self, id: str):
-        response: DeleteResult = self.get_current_collection().delete_many({"_id": ObjectId(id)})
-        return {
-            "acknowledged": response.acknowledged,
-            "deleted_count": response.deleted_count,
-            "raw_result": response.raw_result,
-        }
+        DeleteResult = self.get_current_collection().delete_many({"_id": ObjectId(id)})
+        

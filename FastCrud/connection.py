@@ -3,13 +3,13 @@ from mongo_db_config import mongo_db_meta
 
 class DBConnectionHandler:
     def __init__(self) -> None:
-        
-        self.__connection_string ='mongodb+srv://Adm:admbarbearia@barbearia.xhdorgr.mongodb.net/'
-        #asdasdasd
-        #self.__connection_string ='mongodb://{}:{}/'.format(
-        # mongo_db_meta["HOST"],
-        #    mongo_db_meta["PORT"]
-        # )
+        #CONEXAO ATLAS
+        # self.__connection_string ='mongodb+srv://Adm:admbarbearia@barbearia.xhdorgr.mongodb.net/'
+        # CONEXAO LOCAL
+        self.__connection_string ='mongodb://{}:{}/'.format(
+         mongo_db_meta["HOST"],
+            mongo_db_meta["PORT"]
+         )
         self.__database_name = mongo_db_meta["DB_NAME"]
         self.__client = None
         self.__db_connection = None

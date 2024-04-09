@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from models import Item, ItemSend
-from controllers import create_item, get_all_items, update_item, delete_item
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
 
@@ -21,8 +20,6 @@ origins = [
     "http://127.0.0.1:8000/items/" 
     "http://127.0.0.1:5500/items/",
     "http://localhost:8000/",
-
-
 ]
 
 app.add_middleware(
