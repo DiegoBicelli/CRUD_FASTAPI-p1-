@@ -28,3 +28,14 @@ Em outro terminal:
 .venv/Scripts/activate
 uvicorn main:app --reload --port 5500
 ```
+
+## Facilite os Testes com o Task
+
+comandos:
+```yml
+* task api: #inicia o uvicorn 
+* task clean: # Limpa a pasta .venv
+* task front: #inicia o servidor python para o front
+* task test: #roda o run.py para testes
+* task venv: #Inicia o ambiente .venv
+```
