@@ -32,7 +32,7 @@ uvicorn main:app --reload --port 5500
 ## Facilite os Testes com o Task
 
 comandos:
-´´´yml
+´´´python
 * task api: #inicia o uvicorn 
 * task clean: # Limpa a pasta .venv
 * task front: #inicia o servidor python para o front
