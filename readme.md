@@ -37,5 +37,5 @@ comandos:
 * task clean: # Limpa a pasta .venv
 * task front: #inicia o servidor python para o front
 * task test: #roda o run.py para testes
-* task venv: Inicia o ambiente .venv
+* task venv: #Inicia o ambiente .venv
 ```
