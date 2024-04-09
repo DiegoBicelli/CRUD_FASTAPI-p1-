@@ -6,6 +6,7 @@ CRUD básico utilizando FASTAPI, Axios e MongoDB
 Lembre de ter o Python instalado!
 ```bash 
 pip install -r requirements
+pip install pymongo
 ```
 
 ## Ative o ambiente
