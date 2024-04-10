@@ -19,20 +19,25 @@ class itemRepository:
             "inserted_id": str(response.inserted_id),
         }
     
-    def insert_list_of_documents(self, list_of_documents: List[Dict]) -> List[Dict]:
-        return self.get_current_collection().insert_many(list_of_documents)
+    #  def insert_list_of_documents(self, list_of_documents: List[Dict]) -> List[Dict]:
+        # return self.get_current_collection().insert_many(list_of_documents)
     
-    def select_many(self) -> dict:
-        self.get_current_collection.find(filter)
-        return True
+    # def select_many(self) -> dict:
+        # self.get_current_collection.find(filter)
+        # return True
     
     def select_if_property_exists(self, property: str) -> None:
         return self.get_current_collection().find({property: {"$exists": True}})
     
-    def select_or(self) -> None:
-        return self.get_current_collection().find({ "$or": [{ "nome": "leo" }, { "Pizza": { "$exists": True } }] })
+    # def select_or(self) -> None:
+        # return self.get_current_collection().find({ "$or": [{ "nome": "leo" }, { "Pizza": { "$exists": True } }] })
     
     def select_by_object_id(self, id: ObjectId) -> dict:
+        try:
+            object_id = ObjectId(id)
+        except Exception as e:
+            return {"status": "ID_INVALIDO"}
+
         result = self.get_current_collection().find_one({"_id": ObjectId(id)})
         if result:
             response = {
@@ -42,30 +47,47 @@ class itemRepository:
             "description": result["description"]
         }
             return response
-        else:
-            return {}
 
     def edit_registry(self, id: str, data: ItemSend) -> Dict:
+        try:
+            object_id = ObjectId(id)
+        except Exception as e:
+            return {"status": "ID_INVALIDO"}
         UpdateResult = self.get_current_collection().update_one(
             {"_id": ObjectId(id)},
             {"$set": data.model_dump()}
         )
+        n_updated = UpdateResult.modified_count
+        if n_updated == 0:
+            return{"status":"NO_ITEMS_UPDATED"}
+        else:
+            return {"status": "OK"}
 
-    def edit_many_registries(self,filtro: dict, propriedades: dict) -> None:
-        return self.get_current_collection.update_many(
-            filtro,
-            {"$set": propriedades}
-        ) 
+    # def edit_many_registries(self,filtro: dict, propriedades: dict) -> None:
+    #     return self.get_current_collection.update_many(
+    #         filtro,
+    #        {"$set": propriedades}
+    #    ) 
 
-    def edit_many_increment(self, num, property: str) -> None:
-        return self.get_current_collection().update_one(
-            {"_id": ObjectId(id)},
-            {"$inc": {property: num}}
-        ) 
+   # def edit_many_increment(self, num, property: str) -> None:
+   #     return self.get_current_collection().update_one(
+   #         {"_id": ObjectId(id)},
+   #         {"$inc": {property: num}}
+   #     ) 
 
-    def delete_many_registry(self, data: dict):
-        return self.get_current_collection().delete_many(data)
+    #def delete_many_registry(self, data: dict):
+    #    return self.get_current_collection().delete_many(data)
 
     def delete_registry(self, id: str):
+        try:
+            object_id = ObjectId(id)
+        except Exception as e:
+            return {"status": "ID_INVALIDO"}
+
         DeleteResult = self.get_current_collection().delete_many({"_id": ObjectId(id)})
-        
+        n_deleted = DeleteResult.deleted_count
+        print(n_deleted)
+        if n_deleted == 0:
+            return {"status": "NO_ITEMS_DELETED"}
+        else:
+            return {"status": "OK"}

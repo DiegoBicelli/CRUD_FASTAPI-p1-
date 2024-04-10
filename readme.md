@@ -40,3 +40,13 @@ comandos:
 * task test: #roda o run.py para testes
 * task venv: #Inicia o ambiente .venv
 ```
+
+## TO-DO
+
+- classe com funções especializadas em tratamento de erros
+- padronização dos retorno em python
+- Transformar os Alerts em um Modal 
+- Retorno de multiplos documentos
+- Tratamento de Erro de pesquisa quando o Id não é encontrado
+
+

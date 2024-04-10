@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from models import Item, ItemSend
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo import MongoClient
-
 from connection import DBConnectionHandler
 from item_repository import itemRepository
 from bson.objectid import ObjectId
@@ -35,9 +34,10 @@ app.add_middleware(
 async def add_item(item: ItemSend):
     return item_Repository.insert_document(item)
 
-@app.get("/items/")
-async def read_items():
-    return item_Repository.select_many()
+#TO-DO - ajuste de roda e retorno
+#@app.get("/items/")
+#async def read_items():
+    #return item_Repository.select_many()
 
 @app.get("/items/{item_id}")
 async def read_one_item(item_id: str):

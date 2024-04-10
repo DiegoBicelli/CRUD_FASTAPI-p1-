@@ -5,10 +5,10 @@ class Item(BaseModel):
     id: Optional[str] 
     name: str
     description: Optional[str]
-    price: str
+    price: Optional[float]
 
 class ItemSend(BaseModel):
     name: str
     description: Optional[str]
-    price: str
+    price: Optional[float]
 
