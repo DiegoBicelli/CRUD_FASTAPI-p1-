@@ -7,6 +7,8 @@ Lembre de ter o Python instalado!
 ```bash 
 pip install -r requirements
 pip install pymongo
+pip install fastapi
+winget install Task.Task
 ```
 
 ## Ative o ambiente
